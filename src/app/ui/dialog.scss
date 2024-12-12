@@ -1,12 +1,17 @@
 @import "../variables.scss";
 
 dialog {
-	width: 472px;
+	width: min(472px, 99vw);
 	min-height: 400px;
 	height: fit-content;
 
 	background: $muted-background;
-	margin: 0 auto;
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	// transform: translateY(50%) translateX(50%);
 
 	border: none;
 	border-radius: 1rem;
@@ -95,5 +100,29 @@ dialog {
 				transform: scaleX(1.01);
 			}
 		}
+	}
+	&[open] {
+		animation: fadein 0.2s ease-in forwards;
+	}
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@starting-style {
+	dialog[open] {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+}
+
+@starting-style {
+	dialog[open]::backdrop {
+		background-color: rgb(0 0 0 / 0%);
 	}
 }
