@@ -1,18 +1,18 @@
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
+//only importing the used fonts styles
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap");
+@import "variables.scss";
 
-	--accent: #2f11a6;
-	--muted-background: #d6d3de;
+:root {
+	--background: #{$background};
+	--foreground: #{$foreground};
+	--accent: #{$accent};
+	--muted-background: #{$muted-background};
+	--link: #{$link};
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-
-		--accent: #7658ed;
-		--muted-background: #25222d;
+		@include dark-theme;
 	}
 }
 
@@ -28,6 +28,9 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	font-family: "Poppins", sans-serif;
+	font-style: normal;
 }
 
 * {
@@ -41,12 +44,6 @@ a {
 	text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
-}
-
 .popupTrigger__wrapper {
 	width: 100dvw;
 	height: 100dvh;
@@ -54,9 +51,7 @@ a {
 	align-items: center;
 	justify-content: center;
 
-	button {
-		// usually i would give this a class. but since there are no other elements to style here, there's no need
-
+	> button {
 		height: fit-content;
 		width: fit-content;
 		padding: 1rem 2rem;
