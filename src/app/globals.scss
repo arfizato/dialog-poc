@@ -1,0 +1,71 @@
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+
+	--accent: #2f11a6;
+	--muted-background: #d6d3de;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+
+		--accent: #7658ed;
+		--muted-background: #25222d;
+	}
+}
+
+html,
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
+
+.popupTrigger__wrapper {
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	button {
+		// usually i would give this a class. but since there are no other elements to style here, there's no need
+
+		height: fit-content;
+		width: fit-content;
+		padding: 1rem 2rem;
+
+		background-color: var(--accent);
+		color: var(--foreground);
+
+		border: none;
+
+		border-radius: 0.5rem;
+	}
+}
