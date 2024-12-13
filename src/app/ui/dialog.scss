@@ -14,10 +14,10 @@ dialog {
 	// transform: translateY(50%) translateX(50%);
 
 	&[open] {
-		animation: slideFadeIn 0.1s ease-out forwards;
+		animation: slideFadeIn 0.2s ease-out forwards;
 	}
 	&.closing {
-		animation: slideFadeOut 0.1s ease-out forwards;
+		animation: slideFadeOut 0.2s ease-out forwards;
 	}
 
 	border: none;
