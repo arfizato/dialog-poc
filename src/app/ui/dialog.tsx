@@ -69,11 +69,15 @@ export const Dialog = ({
 						<p className='text'>
 							<span>{`Codes are dropped from our `}</span>
 							<Image src={Telegram} alt='telegram' />
-							<a href='#' target='_blank'>{`Telegram Channel`}</a>
+							<a
+								href='https://arfizato.tn'
+								target='_blank'>{`Telegram Channel`}</a>
 							<span>{`, we will post it there, so be sure to follow us to be updated!`}</span>
 						</p>
 					</div>
-					<button className='cta'>Claim Bonus</button>
+					<a href='https://arfizato.tn' target='_blank'>
+						<button className='cta'>Claim Bonus</button>
+					</a>
 				</div>
 			</dialog>
 		</>
