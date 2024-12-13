@@ -13,6 +13,13 @@ dialog {
 	transform: translate(-50%, -50%);
 	// transform: translateY(50%) translateX(50%);
 
+	&[open] {
+		animation: slideFadeIn 0.1s ease-out forwards;
+	}
+	&.closing {
+		animation: slideFadeOut 0.1s ease-out forwards;
+	}
+
 	border: none;
 	border-radius: 1rem;
 	padding: 1rem;
@@ -101,19 +108,8 @@ dialog {
 			}
 		}
 	}
-	&[open] {
-		animation: fadein 0.2s ease-in forwards;
-	}
 }
 
-@keyframes fadein {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
 @starting-style {
 	dialog[open] {
 		opacity: 0;
@@ -124,5 +120,27 @@ dialog {
 @starting-style {
 	dialog[open]::backdrop {
 		background-color: rgb(0 0 0 / 0%);
+	}
+}
+
+@keyframes slideFadeIn {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, 50%);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@keyframes slideFadeOut {
+	0% {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -100%);
 	}
 }

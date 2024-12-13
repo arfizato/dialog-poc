@@ -11,6 +11,13 @@ export const Dialog = ({
 }: {
 	ref: RefObject<HTMLDialogElement | null>;
 }) => {
+	const closeModal = () => {
+		ref.current?.classList.add("closing");
+		setTimeout(() => {
+			ref.current?.close();
+			ref.current?.classList.remove("closing");
+		}, 200);
+	};
 	return (
 		<>
 			<dialog ref={ref}>
@@ -19,7 +26,7 @@ export const Dialog = ({
 						<Image src={GiftIcon} width={40} height={40} alt='x'></Image>
 						<h4>Redeem Code</h4>
 					</div>
-					<button onClick={() => ref.current?.close()}>
+					<button onClick={closeModal}>
 						<Image src={CloseIcon} width={10} height={10} alt='x'></Image>
 					</button>
 				</div>
@@ -29,7 +36,7 @@ export const Dialog = ({
 							fill
 							src={Banner}
 							style={{ objectFit: "contain" }}
-							alt='x'></Image>
+							alt=''></Image>
 					</div>
 					<div className='description'>
 						<p className='subtitle'>Redeem your code</p>

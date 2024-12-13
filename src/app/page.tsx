@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Dialog } from "@/app/ui/Dialog";
+import { Dialog } from "@/app/ui/dialog";
 
 export default function Home() {
 	const dialog = useRef<HTMLDialogElement>(null);
