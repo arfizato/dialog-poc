@@ -64,3 +64,14 @@ a {
 		border-radius: 0.5rem;
 	}
 }
+
+.git {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	text-decoration: underline;
+	transition: all 0.2s;
+	&:hover {
+		color: $accent;
+	}
+}

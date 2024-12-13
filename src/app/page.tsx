@@ -16,6 +16,12 @@ export default function Home() {
 					Do not click me!
 				</button>
 			</div>
+			<a
+				className='git'
+				target='_blank'
+				href='https://github.com/arfizato/dialog-poc'>
+				GitHub Repo
+			</a>
 		</>
 	);
 }

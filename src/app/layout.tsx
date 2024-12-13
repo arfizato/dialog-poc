@@ -7,6 +7,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
+			<head>
+				<title>Dialog POC - IBRAHIM DOGHRI</title>
+			</head>
 			<body className=''>{children}</body>
 		</html>
 	);
