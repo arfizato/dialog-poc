@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject, useState } from "react";
 import "./dialog.scss";
 import Image from "next/image";
 import CloseIcon from "@/assets/images/Close.svg";
@@ -11,6 +11,8 @@ export const Dialog = ({
 }: {
 	ref: RefObject<HTMLDialogElement | null>;
 }) => {
+	const [startY, setStartY] = useState(0);
+	const [currentY, setCurrentY] = useState(0);
 	const closeModal = () => {
 		ref.current?.classList.add("closing");
 		setTimeout(() => {
@@ -18,9 +20,33 @@ export const Dialog = ({
 			ref.current?.classList.remove("closing");
 		}, 200);
 	};
+
+	const handleTouchStart = (e: React.TouchEvent) => {
+		setStartY(e.touches[0].clientY);
+	};
+
+	const handleTouchMove = (e: React.TouchEvent) => {
+		const touchY = e.touches[0].clientY;
+		const deltaY = touchY - startY;
+		if (deltaY > 0) {
+			setCurrentY(deltaY);
+		}
+	};
+
+	const handleTouchEnd = () => {
+		if (currentY > 100) {
+			closeModal();
+		}
+		setCurrentY(0);
+	};
 	return (
 		<>
-			<dialog ref={ref}>
+			<dialog
+				ref={ref}
+				onTouchStart={handleTouchStart}
+				onTouchMove={handleTouchMove}
+				onTouchEnd={handleTouchEnd}
+				style={{ transform: `translate(-50, ${currentY}px)` }}>
 				<div className='header'>
 					<div className='header__left'>
 						<Image src={GiftIcon} width={40} height={40} alt='x'></Image>
