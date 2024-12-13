@@ -62,6 +62,11 @@ a {
 		border: none;
 
 		border-radius: 0.5rem;
+		transition: all 0.2s;
+		&:hover {
+			color: $accent;
+			background-color: $foreground;
+		}
 	}
 }
 
